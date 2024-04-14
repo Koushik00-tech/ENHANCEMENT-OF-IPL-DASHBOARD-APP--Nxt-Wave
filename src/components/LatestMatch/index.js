@@ -1,40 +1,48 @@
+// Write your code here
 import './index.css'
 
 const LatestMatch = props => {
-  const {latestDetails} = props
+  const {latestMatchData} = props
   const {
+    competingTeam,
     date,
     venue,
     result,
-    umpires,
-    competingTeam,
     competingTeamLogo,
     firstInnings,
     secondInnings,
     manOfTheMatch,
-  } = latestDetails
+    umpires,
+  } = latestMatchData
+
   return (
-    <div className="latest-card">
-      <div className="left-holder">
-        <p className="latest-heading">{competingTeam}</p>
-        <p className="date-match">{date}</p>
-        <p className="venue-match">{venue}</p>
-        <p className="venue-match">{result}</p>
-      </div>
-      <img
-        src={competingTeamLogo}
-        className="latest-image"
-        alt={`latest match ${competingTeam}`}
-      />
-      <div className="right-holder">
-        <h1 className="latest-innings">First Innings</h1>
-        <p className="values-latest">{firstInnings}</p>
-        <h1 className="latest-innings">Second Innings</h1>
-        <p className="values-latest">{secondInnings}</p>
-        <h1 className="latest-innings">Man Of The Match</h1>
-        <p className="values-latest">{manOfTheMatch}</p>
-        <h1 className="latest-innings">Umpires</h1>
-        <p className="venue-match">{umpires}</p>
+    <div className="latest-match-container">
+      <h1 className="latest-match-heading">Latest Matches</h1>
+      <div className="latest-match-card">
+        <div className="latest-match-details-logo-container">
+          <div className="latest-match-details-1">
+            <p className="latest-match-team-name">{competingTeam}</p>
+            <p className="latest-match-date">{date}</p>
+            <p className="match-details">{venue}</p>
+            <p className="match-details">{result}</p>
+          </div>
+          <img
+            src={competingTeamLogo}
+            className="latest-match-team-logo"
+            alt={`latest match ${competingTeam}`}
+          />
+        </div>
+        <hr className="separator" />
+        <div className="latest-match-details-2">
+          <p className="latest-match-details-label">First Innings</p>
+          <p className="latest-match-details-value">{firstInnings}</p>
+          <p className="latest-match-details-label">Second Innings</p>
+          <p className="latest-match-details-value">{secondInnings}</p>
+          <p className="latest-match-details-label">Man Of The Match</p>
+          <p className="latest-match-details-value">{manOfTheMatch}</p>
+          <p className="latest-match-details-label">Umpires</p>
+          <p className="latest-match-details-value">{umpires}</p>
+        </div>
       </div>
     </div>
   )
